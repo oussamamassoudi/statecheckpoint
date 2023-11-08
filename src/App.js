@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const person={name:"Cristiano Ronaldo", age:38, img:"https://i2-prod.mirror.co.uk/incoming/article28924807.ece/ALTERNATES/s615b/0_This-handout-photo-released-on-December.jpg" }
+  const [Show, setshow] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <div>
+    <div className='btn'>
+      <button onClick={()=>setshow(!Show)}>Show player</button>
     </div>
+    <div className='cont'>
+{  Show?  <div className='card'>
+      <img src={person.img}/>
+      <h3>{person.name}</h3>
+      <p>{person.age}</p>
+    </div>:null}
+    </div>
+    
+    
+   </div>
   );
 }
 
